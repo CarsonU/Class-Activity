@@ -15,13 +15,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<Button>(R.id.button).setOnClickListener {
-            var name = findViewById<EditText>(R.id.editText).text
+        val btn = findViewById<Button>(R.id.button)
+        val txtView = findViewById<TextView>(R.id.textView)
+        val txtEdit = findViewById<EditText>(R.id.editText)
+
+        btn.setOnClickListener {
+            var name = txtEdit.text
             if (name.isNullOrBlank()){
-                findViewById<TextView>(R.id.textView).text = "Please enter your name!"
-                findViewById<TextView>(R.id.textView).setTextColor(Color.RED)
+                txtView.setText("Please enter your name!")
+                txtView.setTextColor(Color.RED)
             } else {
-                findViewById<TextView>(R.id.textView).text = "Hello $name!"
+                txtView.setText("Hello $name!")
+                txtView.setTextColor(Color.BLACK)
             }
         }
 
